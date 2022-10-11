@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: ui
+  profiles:
+    active: dev
+  cloud:
+    config:
+      uri: http://config-server:8071
+      failFast: true
+      retry:
+        initialInterval: 30000
+        multiplier: 1.3
+        maxInterval: 10000
+        maxAttempts: 20
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: ui
+            client-secret: MFdgTojiErIFp35pHmXoyJvXedxizSBC
+            authorization-grant-type: authorization_code
+            #redirect-uri: http://localhost:8072/ui/ #
+            redirect-uri: http://localhost:8000/login/oauth2/code/ui #
+            scope:
+              - openid
+#            client-id: security-admin-console
+#            authorization-grant-type: authorization_code
+#            redirect-uri: http://localhost:8072/ui/ #
+#            scope:
+#              - openid
+        provider:
+          keycloak:
+            issuer-uri: http://keycloak:8079/realms/Test_realm
+            #issuer-uri: http://localhost:8079/auth/realms/Test_realm
+            #authorization-uri: http://localhost:8079/auth/realms/Test_realm/protocol/openid-connect/auth
+            #token-uri: http://localhost:8081/auth/realms/Test_realm/protocol/openid-connect/token
+            #issuer-uri: http://localhost:8080/auth/realms/Test_realm
+            auth-server-url: http://keycloak:8079
+            authorization-uri: http://keycloak:8079/realms/Test_realm/protocol/openid-connect/auth
+            user-info-uri: http://keycloak:8079/realms/Test_realm/protocol/openid-connect/userinfo # optional?
+            token-uri: http://keycloak:8079/realms/Test_realm/protocol/openid-connect/token
+            user-name-attribute: preferred_username
