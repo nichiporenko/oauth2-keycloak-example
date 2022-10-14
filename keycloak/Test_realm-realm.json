@@ -631,7 +631,7 @@
     "clientId" : "ui",
     "name" : "",
     "description" : "",
-    "rootUrl" : "http://localhost:8000",
+    "rootUrl" : "http://localhost:8072",
     "adminUrl" : "",
     "baseUrl" : "",
     "surrogateAuthRequired" : false,

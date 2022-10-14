@@ -1,4 +1,7 @@
 spring:
+  main:
+    web-application-type: reactive
+    allow-bean-definition-overriding: true
   application:
     name: gateway
   profiles:
@@ -16,3 +19,22 @@ spring:
       discovery.locator:
         enabled: true
         lowerCaseServiceId: true
+  security:
+    oauth2:
+      client:
+        registration:
+          keycloak:
+            client-id: ui
+            client-secret: MFdgTojiErIFp35pHmXoyJvXedxizSBC
+            authorization-grant-type: authorization_code
+            redirect-uri: http://localhost:8072/login/oauth2/code/ui
+            scope:
+              - openid
+        provider:
+          keycloak:
+            issuer-uri: http://keycloak:8079/realms/Test_realm
+            auth-server-url: http://keycloak:8079
+            authorization-uri: http://keycloak:8079/realms/Test_realm/protocol/openid-connect/auth
+            user-info-uri: http://keycloak:8079/realms/Test_realm/protocol/openid-connect/userinfo # optional?
+            token-uri: http://keycloak:8079/realms/Test_realm/protocol/openid-connect/token
+            user-name-attribute: preferred_username
