@@ -7,6 +7,7 @@ Minimal working example of Spring Boot web app with OAuth 2.0, Keycloak. All Mic
 2. Run the `startAll.sh` or `restartAll.sh`
 3. When all services are running, in the browser go to: `http://localhost:8072/ui`
 4. Use default user: `test:test`
+5. To log out use this endpoint: `http://localhost:8072/logout`
 
 ## To Export Keycloak's Realm With Users:
 ```
