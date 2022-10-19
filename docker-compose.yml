@@ -25,6 +25,9 @@ services:
       backend:
         aliases:
           - "gateway"
+    depends_on:
+      keycloak:
+        condition: service_healthy
   ui:
     build: ./ui
     ports:
@@ -33,9 +36,6 @@ services:
       backend:
         aliases:
           - "ui"
-    depends_on:
-      keycloak:
-        condition: service_healthy
   postgres:
     image: postgres
     volumes:
@@ -94,11 +94,11 @@ services:
           - "keycloak"
     healthcheck:
       test: "/bin/sh -c 'curl -f http://localhost:8079/realms/Test_realm || exit 1'"
-      interval: 20s
-      retries: 5
-      start_period: 80s
+      interval: 7s
       timeout: 5s
-          
+      retries: 15
+      start_period: 80s
+
 networks:
   backend:
     name: custom_backend
