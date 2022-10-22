@@ -1,4 +1,4 @@
-# Oauth2 + Keycloak setup based on Spring Boot run on Docker Compose
+# Oauth2 + Keycloak setup with Spring Boot on Docker Compose
 Minimal working example of Spring Boot web app with OAuth 2.0, Keycloak. All MicroServices run on Docker Compose.
 
 ## Running All Services in Docker Compose
